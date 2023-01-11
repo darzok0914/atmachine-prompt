@@ -5,5 +5,5 @@ _gitInfo=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); [ -z $_gitInfo ] && _gi
 }
 
 setopt prompt_subst
-PROMPT="%B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m%(?:%{$fg_bold[green]%} ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT=" %B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m%(?:%{$fg_bold[green]%} ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%c%{$reset_color%}"
 PROMPT+='${_git_current_branch}'
