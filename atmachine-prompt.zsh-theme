@@ -7,10 +7,10 @@ _gitInfo=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); [ -z $_gitInfo ] && _gi
 
 if [[ ${#PWD} -gt 80 ]]; then
 PROMPT="
-%B%{$fg[white]%}┌── %n%{$fg[cyan]%}@%{$fg[white]%}%m%(?:%{$fg_bold[green]%} ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%~%{$reset_color%}"
+%B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m%(?:%{$fg_bold[green]%} ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%~%{$reset_color%}"
 PROMPT+='${_git_current_branch}'
 PROMPT+="
-└─ %(?:%{$fg_bold[green]%}  :%{$fg_bold[red]%}  )"
+%(?:%{$fg_bold[green]%} :%{$fg_bold[red]%} )"
 else
 PROMPT="
 %B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m%(?:%{$fg_bold[green]%} ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%~%{$reset_color%}"
