@@ -7,21 +7,19 @@ _gitInfo=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); [ -z $_gitInfo ] && _gi
 # _venvInfo=$([ $VIRTUAL_ENV ] && basename $VIRTUAL_ENV); [ -z $_venvInfo ] && _venv="" || _venv="%{$fg[blue]%}[ $_venvInfo] %{$reset_color%}"
 _venvInfo=$([ $VIRTUAL_ENV ] && basename $VIRTUAL_ENV); [ -z $_venvInfo ] && _venv="" || _venv="%{$fg[blue]%}[ venv] %{$reset_color%}"
 
-
 if [[ ${#PWD} -gt 80 ]]; then
 PROMPT=""
 PROMPT+="${_venv}"
 PROMPT+="%B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m%(?:%{$fg_bold[green]%}"
 PROMPT+=" ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%~%{$reset_color%}"
 PROMPT+='${_git_current_branch}'
-PROMPT+="
-%(?:%{$fg_bold[green]%} :%{$fg_bold[red]%} )"
+PROMPT+="%(?:%{$fg_bold[green]%} %{$reset_color%}:%{$fg_bold[red]%} %{$reset_color%})"
 else
 PROMPT=""
 PROMPT+="${_venv}"
 PROMPT+="%B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m%(?:%{$fg_bold[green]%}"
 PROMPT+=" ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%~%{$reset_color%}"
 PROMPT+='${_git_current_branch}'
-PROMPT+="%(?:%{$fg_bold[green]%} :%{$fg_bold[red]%} )"
+PROMPT+="%(?:%{$fg_bold[green]%} %{$reset_color%}:%{$fg_bold[red]%} %{$reset_color%})"
 fi
 }
