@@ -25,7 +25,7 @@ git_prompt_info() {
         echo "${remote_branch}"
       else
         # Local branch (no tracking)
-        echo "not tracking/${branch_name}"
+        echo "untracked/${branch_name}"
       fi
     fi
   fi
