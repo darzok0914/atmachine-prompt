@@ -37,7 +37,7 @@ _gitInfo=$(git_prompt_info); [ -z $_gitInfo ] && _git_current_branch=" " || _git
 # _venvInfo=$([ $VIRTUAL_ENV ] && basename $VIRTUAL_ENV); [ -z $_venvInfo ] && _venv="" || _venv="%{$fg[blue]%}[ $_venvInfo] %{$reset_color%}"
 _venvInfo=$([ $VIRTUAL_ENV ] && basename $VIRTUAL_ENV); [ -z $_venvInfo ] && _venv="" || _venv="%{$fg[blue]%}[ venv] %{$reset_color%}"
 
-if [[ ${#PWD} -gt 80 ]]; then
+if [[ ${#PWD} -gt 20 ]]; then
 PROMPT=""
 PROMPT+="${_venv}"
 PROMPT+="%B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m  %(?:%{$fg_bold[green]%}"
