@@ -43,7 +43,8 @@ PROMPT+="${_venv}"
 PROMPT+="%B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m  %(?:%{$fg_bold[green]%}"
 PROMPT+=" ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%~%{$reset_color%}"
 PROMPT+='${_git_current_branch}'
-PROMPT+="%(?:%{$fg_bold[green]%} %{$reset_color%}:%{$fg_bold[red]%} %{$reset_color%})"
+PROMPT+="
+└─ %(?:%{$fg_bold[green]%} %{$reset_color%}:%{$fg_bold[red]%} %{$reset_color%})"
 else
 PROMPT=""
 PROMPT+="${_venv}"
