@@ -37,17 +37,19 @@ _gitInfo=$(git_prompt_info); [ -z $_gitInfo ] && _git_current_branch=" " || _git
 # _venvInfo=$([ $VIRTUAL_ENV ] && basename $VIRTUAL_ENV); [ -z $_venvInfo ] && _venv="" || _venv="%{$fg[blue]%}[ $_venvInfo] %{$reset_color%}"
 _venvInfo=$([ $VIRTUAL_ENV ] && basename $VIRTUAL_ENV); [ -z $_venvInfo ] && _venv="" || _venv="%{$fg[blue]%}[ venv] %{$reset_color%}"
 
-if [[ ${#PWD} -gt 20 ]]; then
+# if the space to write our command is less than 150 character long
+if [[ COLUMNS - ${#PWD} - ${#USER} - ${#HOST} -lt 150 ]]; then
 PROMPT="
 "
 PROMPT+="${_venv}"
-PROMPT+="%B%{$fg[white]%}┌── %n%{$fg[cyan]%}@%{$fg[white]%}%m  %(?:%{$fg_bold[green]%}"
+PROMPT+="%B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m  %(?:%{$fg_bold[green]%}"
 PROMPT+=" ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%~%{$reset_color%}"
 PROMPT+='${_git_current_branch}'
 PROMPT+="
 └─ %(?:%{$fg_bold[green]%} %{$reset_color%}:%{$fg_bold[red]%} %{$reset_color%})"
 else
-PROMPT=""
+PROMPT="
+"
 PROMPT+="${_venv}"
 PROMPT+="%B%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m  %(?:%{$fg_bold[green]%}"
 PROMPT+=" ➜ :%{$fg_bold[red]%} ➜ )%{$fg[cyan]%}%~%{$reset_color%}"
