@@ -38,7 +38,7 @@ _gitInfo=$(git_prompt_info); [ -z $_gitInfo ] && _git_current_branch=" " || _git
 _venvInfo=$([ $VIRTUAL_ENV ] && basename $VIRTUAL_ENV); [ -z $_venvInfo ] && _venv="" || _venv="%{$fg[blue]%}[ venv] %{$reset_color%}"
 
 # if the space to write our command is less than 150 character long
-if [[ COLUMNS - ${#PWD} - ${#USER} - ${#HOST} -lt 150 ]]; then
+if [[ ${COLUMNS} - ${#PWD} - ${#USER} - ${#HOST} -lt 150 ]]; then
 PROMPT="
 "
 PROMPT+="${_venv}"
